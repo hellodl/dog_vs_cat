@@ -83,7 +83,7 @@ def ftLastFC():
                          'ReduceLROnPlateau':None,
                          'LearningRateScheduler':None,
                          'CSVLogger':None,
-                         'customize':['m']
+                         'customize':['xk']
                      },
             },
             'time_format':'%m-%d_%X'
