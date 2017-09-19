@@ -240,9 +240,7 @@ def fit(model, lr, ep, t_data, v_data):
 
 if __name__ == '__main__':
     opt, lr, ep = parsing_cmd()
-    print(opt)
-    print(lr)
-    print(ep)
+    print(str(opt)+'-'+str(lr)+'-'+str(ep))
     feat_model = load_base()
     ll_model = load_ll_model(opt)
     t_data, v_data = collecting()
