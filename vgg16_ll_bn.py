@@ -234,6 +234,7 @@ def fit(model, lr, ep, t_data, v_data):
     model.fit(t_data[0], t_data[1],
              validation_data=(v_data[0], v_data[1]),
              batch_size=64,
+             verbose=2,
              epochs=ep)
 
 
