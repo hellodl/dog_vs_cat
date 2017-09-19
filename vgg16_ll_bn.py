@@ -236,8 +236,8 @@ def fit(model, lr, ep, t_data, v_data):
              batch_size=64,
              verbose=0,
              epochs=ep)
-    print('loss:'+ str(hist.history['loss'][-1])+'acc:'+ str(hist.history['acc'][-1])+ \
-          'val_loss:'+str(hist.history['val_loss'][-1]) + 'val_acc:'+ str(hist.history['val_acc'][-1]))
+    print('loss:'+ str(round(hist.history['loss'][-1],4))+' acc:'+ str(round(hist.history['acc'][-1],4))+ \
+          ' val_loss:'+str(round(hist.history['val_loss'][-1],4)) + ' val_acc:'+ str(hist.history['val_acc'][-1],4)))
 
 
 if __name__ == '__main__':
