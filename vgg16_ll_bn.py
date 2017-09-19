@@ -104,10 +104,10 @@ def dropout_adjust(model, dropout_cfg):
 
 def parsing_cmd():
     opt = {
-        's': 'S',
-        'r': 'R',
-        'a': 'A',
-        'n': 'N'
+        's': 'SGD',
+        'r': 'RMSprop',
+        'a': 'Adam',
+        'n': 'Nadam'
     }
     arg_cnt = len(sys.argv) - 1  # do not count filename
     if arg_cnt == 0:
@@ -215,7 +215,7 @@ def collecting():
     return [trn_features, trn_labels], [val_features, val_labels]
 
 
-def load_ll_model():
+def load_ll_model(opt):
     def get_ll_layers():
         return [
             BatchNormalization(input_shape=(4096,)),
@@ -225,7 +225,7 @@ def load_ll_model():
 
     ll_layers = get_ll_layers()
     ll_model = Sequential(ll_layers)
-    ll_model.compile(optimizer=SGD(), loss='categorical_crossentropy', metrics=['accuracy'])
+    ll_model.compile(optimizer=eval(opt)(), loss='categorical_crossentropy', metrics=['accuracy'])
     return ll_model
 
 
@@ -240,6 +240,6 @@ def fit(model, lr, ep, t_data, v_data):
 if __name__ == '__main__':
     opt, lr, ep = parsing_cmd()
     feat_model = load_base()
-    ll_model = load_ll_model()
+    ll_model = load_ll_model(opt)
     t_data, v_data = collecting()
     fit(ll_model, lr, ep, t_data, v_data)
