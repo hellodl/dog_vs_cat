@@ -236,7 +236,10 @@ def fit(model, lr, ep, t_data, v_data):
              batch_size=64,
              verbose=0,
              epochs=ep)
-    print(hist)
+    print(len(hist.history['loss']))
+    print(len(hist.history['acc']))
+    print(len(hist.history['val_loss']))
+    print(len(hist.history['val_acc']))
 
 
 if __name__ == '__main__':
