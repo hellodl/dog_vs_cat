@@ -113,7 +113,7 @@ def parsing_cmd():
     if arg_cnt == 0:
         return
     opt_sel = None
-    ep = None
+    ep = 40
     lr = 'default'
     for i in sys.argv[1:]:
         if i.startswith('--'):
