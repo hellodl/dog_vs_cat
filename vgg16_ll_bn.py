@@ -234,7 +234,7 @@ def fit(model, lr, ep, t_data, v_data):
     hist= model.fit(t_data[0], t_data[1],
              validation_data=(v_data[0], v_data[1]),
              batch_size=64,
-             verbose=2,
+             verbose=0,
              epochs=ep)
     print(hist)
 
